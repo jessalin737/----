@@ -1,0 +1,7 @@
+<!--miniprogram/pages/blueTooth/blueTooth.wxml-->
+<view class="container">
+   <text class="content left">智慧教室</text>
+   <text class="content right">欢迎您！</text>
+   <button class="openBtn">打开蓝牙</button>
+   <button class="searchBtn">搜索设备</button>
+</view>

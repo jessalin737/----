@@ -1,0 +1,37 @@
+<!--miniprogram/pages/home/home.wxml-->
+<view>
+   <view class="banner">
+       <image class="" src="../../images/9.jpg" mode="widthFix" >    
+       </image>
+   </view>
+   <view class="container">
+       <view class="people border">
+          <image class="icon" src="../../images/chujirenzhengrenshuren_xuanzhong.png" mode="aspectFit|aspectFill|widthFix">
+          </image>
+          <text class="icon_text">
+             当前教室人数是：{{people}}人
+          </text>
+       </view>
+       <view class="light border">
+        <image class="icon" src="../../images/liangdu.png" mode="aspectFit|aspectFill|widthFix">
+          </image>
+          <text class="icon_text">
+             当前教室亮度是：{{light}}
+          </text>
+       </view>
+       <view class="shidu  border">
+        <image class="icon" src="../../images/shidu.png" mode="aspectFit|aspectFill|widthFix">
+          </image>
+          <text class="icon_text">
+             当前教室湿度是：{{shidu}}%
+          </text>
+       </view>
+       <view class="wendu  border"> 
+        <image class="icon" src="../../images/wendu.png" mode="aspectFit|aspectFill|widthFix">
+          </image>
+          <text class="icon_text">
+             当前教室温度是：{{wendu}}度
+          </text>
+       </view>
+   </view>
+</view>

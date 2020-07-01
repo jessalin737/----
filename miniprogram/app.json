@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/find/find",
+    "pages/index/index",
+    "pages/home/home",
+    "components/bottom-modal/bottom-modal",
+    "pages/blog-edit/blog-edit",
+    "pages/blueTooth/blueTooth"
+  ],
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#1779FF",
+    "list": [
+      {
+        "iconPath": "./images/1.png",
+        "selectedIconPath": "./images/2.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "iconPath": "./images/3.png",
+        "selectedIconPath": "./images/4.png",
+        "pagePath": "pages/find/find",
+        "text": "发现"
+      },
+      {
+        "iconPath": "./images/5.png",
+        "selectedIconPath": "./images/6.png",
+        "pagePath": "pages/index/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1779FF",
+    "navigationBarTitleText": "智慧教室",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

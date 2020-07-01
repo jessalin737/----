@@ -1,0 +1,8 @@
+<!--components/search/search.wxml-->
+<view class="container">
+  <i class="iconfont icon-sousuosearch82 find"></i>
+  <input class="bar" placeholder="{{placeholder}}"></input>
+  <button class="search" size="mini">
+     <text class="btn-font">搜索</text>
+  </button>
+</view>
