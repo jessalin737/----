@@ -9,7 +9,7 @@
 ### 通知功能
 1. 点击搜索框左侧的发布按钮就可以进入到发布的具体界面，发布界面实现微信统计最多字数不能超过140个字，图片最多只能上传九张
 ### 个人信息
-1. 个人信息功能采用动态的波纹图，呈现蓝色边框底部我动态流动的效果
+1. 个人信息功能采用动态的波纹图，呈现蓝色边框底部动态流动的效果
 ### 效果图
 ![image](https://github.com/jessalin737/xiaochengxu-Smart-classroom/blob/master/classroom-4.jpg)
 ![image](https://github.com/jessalin737/xiaochengxu-Smart-classroom/blob/master/classroom-5.png)
