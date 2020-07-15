@@ -28,3 +28,6 @@
 .search-container {
   flex: 1;
 }
+.blog-list{
+  margin: 35px 0px;
+}

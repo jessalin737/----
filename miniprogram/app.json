@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/blueTooth/blueTooth",
+    "pages/home/home",
     "pages/find/find",
     "pages/index/index",
-    "pages/home/home",
     "components/bottom-modal/bottom-modal",
-    "pages/blog-edit/blog-edit",
-    "pages/blueTooth/blueTooth"
+    "pages/blog-edit/blog-edit"
   ],
   "tabBar": {
     "color": "#000000",

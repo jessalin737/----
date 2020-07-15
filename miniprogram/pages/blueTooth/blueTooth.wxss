@@ -1,6 +1,6 @@
 /* miniprogram/pages/blueTooth/blueTooth.wxss */
 page{
-  position: relative;
+  position:relative;
   background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
 }
 .content{
@@ -16,19 +16,84 @@ page{
   top: 280rpx;
   left: 280rpx;
 }
-.right{
+
+view {
+  display: inline-block;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+  align-items: flex-start;
+}
+
+.section {
+  display: inline-block;
+  width: 100%;
+  margin-top: 60px;
+  position: relative;
+}
+
+.connection {
+  margin-left: 90rpx;
+}
+
+.list {
+  margin-left: 20rpx;
+}
+
+.content {
+  margin-left: 100rpx;
+  padding: auto;
   position: absolute;
-  top: 360rpx;
-  left: 300rpx;
+  top: 5rpx;
+  left: 10rpx;
 }
-.openBtn{
+
+.switch {
   position: relative;
-  top: 470rpx;
-}
-.searchBtn{
-  position: relative;
-  top: 510rpx;
+  float: right;
+  margin-right: 100rpx;
 }
 
+button {
+  background: red\;
+}
 
+.list-item {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx; 
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px dashed #000;
+}
 
+.list-item text {
+   margin-top: 10rpx;
+}
+
+.list-item button {
+  margin-right: 10rpx;
+}
+
+.deviceconnected{
+  background-color:sandybrown
+}
+
+.recieve{
+  width: 100%
+}
+
+.recieve_textarea{
+  width: 100%;
+  margin-top: 10dpx;
+}
+
+input{
+  display: block;
+  border: 1px dashed;
+  width: 200px;
+}
+
+ 
