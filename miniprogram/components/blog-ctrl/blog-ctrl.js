@@ -69,37 +69,48 @@ Component({
     //  })
     // },
     onSend(event){
-      console.log(event);
-      // let content=this.data.content;
-      // if(content.trim()==''){
-      //   wx.showModal({
-      //     title: '评价的内容不能为空',
-      //   })
-      //   return
-      // }
-      //   wx.showLoading({
-      //     title: '评价中',
-      //     mask:true
-      //   })
-      //   //小程序端直接将数据添加到数据库中
-      //   db.collection('find-comment').add({
-      //     data:{
-      //       content,
-      //       createTime:db.serverDate(),
-      //       nickname:userInfo.nickname,
-      //       avatarUrl:userInfo.avatarUrl,
-      //       blogId:this.data.blogId
-      //     }
-      //   }).then((res)=>{
-      //     wx.hideLoading();
-      //     wx.showToast({
-      //       title: '评价成功',
-      //     })
-      //     this.setData({
-      //       modalShow:false,
-      //       content:''
-      //     })
-      //   })
+      // console.log(event);
+      let formId=event.detail.formId;
+      let content=event.detail.value.content;
+      if(content.trim()==''){
+        wx.showModal({
+          title: '评价的内容不能为空',
+        })
+        return
+      }
+        wx.showLoading({
+          title: '评价中',
+          mask:true
+        })
+        //小程序端直接将数据添加到数据库中
+        db.collection('find-comment').add({
+          data:{
+            content,
+            createTime:db.serverDate(),
+            nickname:userInfo.nickname,
+            avatarUrl:userInfo.avatarUrl,
+            blogId:this.data.blogId
+          }
+        }).then((res)=>{
+          wx.cloud.callFunction({
+            name:"sendMessage",
+            data:{
+              content,
+              createTime,
+              blogId:this.properties.blogId
+            }
+          }).then((res)=>{
+             console.log(res);
+          })
+          wx.hideLoading();
+          wx.showToast({
+            title: '评价成功',
+          })
+          this.setData({
+            modalShow:false,
+            content:''
+          })
+        })
     }
   }
 })

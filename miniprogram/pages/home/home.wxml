@@ -1,9 +1,5 @@
 <!--miniprogram/pages/home/home.wxml-->
 <view>
-   <view class="banner">
-       <image class="" src="../../images/9.jpg" mode="widthFix">    
-       </image>
-   </view>
    <view class="container">
        <view class="people border">
           <image class="icon" src="../../images/chujirenzhengrenshuren_xuanzhong.png" mode="aspectFit|aspectFill|widthFix">
