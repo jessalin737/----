@@ -6,6 +6,7 @@
   left: 0;
   z-index: 99;
   text-align: center;
+  /* 模糊效果 */
   background: rgba(0, 0, 0, 0.6);
 }
 
@@ -14,15 +15,17 @@
   bottom: 0rpx;
   left: 0;
   width: 100%;
+  /* 定义底部弹出层面板的最低高度为300rpx */
   min-height: 300rpx;
   box-sizing: border-box;
   background-color: #f8f8f8;
 }
 
-/* 可以直接对外部样式修改 */
+/* 直接对外部引入的删除图标进行修改 */
 .modal .icon-shanchu{
   position: absolute;
   right: 10rpx;
   top: 10rpx;
-  padding: 20rpx; /* 为了增加点击区域大小 */
+  /* 为了增加点击区域大小 */
+  padding: 20rpx; 
 }

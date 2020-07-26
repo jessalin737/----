@@ -1,7 +1,7 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-
 cloud.init()
+
 const TcbRouter=require('tcb-router');
 const  db=cloud.database();
 const findCollection=db.collection('find');
@@ -12,7 +12,18 @@ exports.main = async (event, context) => {
      event
    })
    app.router('list',async(cxt,next)=>{
-    let blogList= await findCollection.skip(event.start).limit(event.count).orderBy('createTime','desc').get().then((res)=>{
+    //搜索功能的实现
+    const keyword=event.keyword;
+    let w={};
+    if(keyword.trim()!=''){
+      w={
+        content:db.RegExp({
+          regexp:keyword,
+          options:"i"
+        })
+      }
+    }
+    let blogList= await findCollection.where(w).skip(event.start).limit(event.count).orderBy('createTime','desc').get().then((res)=>{
        return res.data;
      })
      cxt.body=blogList;

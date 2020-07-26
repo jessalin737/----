@@ -19,13 +19,14 @@ Component({
    */
   methods: {
     onGotUserInfo(event) {
-      console.log(event)
+      // console.log(event)
       const userInfo = event.detail.userInfo
-      // 允许授权
+      // 允许授权后隐藏底部弹出层
       if (userInfo) {
         this.setData({
           modalShow: false
         })
+        //触发授权成功事件
         this.triggerEvent('loginsuccess', userInfo)
       } else {
         this.triggerEvent('loginfail')

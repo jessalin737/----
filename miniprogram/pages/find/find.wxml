@@ -2,6 +2,7 @@
 <view class="container">
   <!-- 头部 -->
   <view class="header">
+    <!-- 给整体的发布容器绑定点击事件 -->
     <view class="publish-container" bindtap="onPublish" >
       <i class="iconfont icon-fabu" ></i>
     </view>
@@ -14,11 +15,12 @@
   <view class="blog-list">
     <block wx:for="{{blogList}}" wx:key="_id">
       <view class="blog-panel">
-        <x-blog-card blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment" />
-        <x-blog-ctrl blogId="{{item._id}}" blog="{{item}}" iconfont="iconfont" icon-pinglun="icon-pinglun" icon-fenxiang="icon-fenxiang" />
+        <x-blog-card  blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment" />
+        <x-blog-ctrl blogId="{{item._id}}" blog="{{item}}" iconfont="iconfont" icon-pinglun="icon-pinglun" icon-shared="icon-shared" />
       </view>
     </block>
   </view>
+  
   <!-- 底部弹出层 -->
   <x-login modalShow="{{modalShow}}"  bind:loginsuccess="onLoginSuccess"  bind:loginfail="onLoginFail">
   </x-login>

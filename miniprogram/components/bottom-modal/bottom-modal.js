@@ -6,9 +6,10 @@ Component({
   properties: {
     modalShow: Boolean
   },
-
+  //可共享且修改外部的样式
   options: {
     styleIsolation: 'apply-shared',
+    //使用具名插槽时需要定义才可以使用
     multipleSlots: true,
   },
 

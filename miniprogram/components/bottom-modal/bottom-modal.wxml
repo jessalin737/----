@@ -3,5 +3,7 @@
       <i class="iconfont icon-shanchu" bindtap="onClose"></i>
       <!-- slot插槽  具名插槽-->
       <slot name="modal-content"></slot>
+      <!-- <slot name="slot1"></slot>
+      <slot name="slot2"></slot> -->
   </view>
 </view>

@@ -27,7 +27,6 @@
 .in-bar {
   color: #999;
 }
-
 .find {
   position: absolute;
   top: 50%;

@@ -10,6 +10,7 @@
   <view class="blog-content">{{blog.content}}</view>
   <view class="blog-img">
     <block wx:for="{{blog.img}}" wx:key="index">
+     <!-- 绑定事件用catchtap可以取消事件冒泡 -->
       <image class="img" src="{{item}}" mode="aspectFill" catch:tap="onPreviewImage" data-imgsrc="{{item}}" data-imgs="{{blog.img}}"></image>
     </block>
   </view>

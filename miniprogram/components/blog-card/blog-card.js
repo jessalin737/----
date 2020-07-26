@@ -8,7 +8,7 @@ Component({
   },
 
   observers: {
-    ['find.createTime'](val) {
+    ['blog.createTime'](val) {
       if (val) {
         // console.log(val)
         this.setData({

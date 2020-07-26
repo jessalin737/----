@@ -1,0 +1,37 @@
+/* components/blog-ctrl/blog-ctrl.wxss */
+.ctrl{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color:#fff;
+}
+.ctrl-item{
+  flex: 1;
+  text-align: center;
+  color: rgba(40, 47, 60, 0.8); 
+  height: 60rpx;
+  font-size: 26rpx;
+}
+.ctrl text{
+   font-size: 32rpx;
+}
+.ctrl .icon{
+  margin-right: 12rpx;
+  font-size: 32rpx;
+}
+.content-comment{
+  width: 560rpx;
+  text-align: left;
+  padding: 20rpx;
+  font-size: 32rpx;
+}
+.sendBtn{
+  background-color:#1779FF;
+  position: absolute;
+  right: 20rpx;
+  bottom: 30rpx;
+}
+.sendBtn text{
+  color: aliceblue;
+  font-size: 32rpx;
+}

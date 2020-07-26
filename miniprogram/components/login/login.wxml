@@ -1,8 +1,11 @@
 <x-bottom-modal modalShow="{{modalShow}}">
   <view slot="modal-content">
+    <!-- open-type获取授权的开放能力，bindgetuserinfo绑定授权事件 -->
     <button class="login"
       open-type="getUserInfo"
       bindgetuserinfo="onGotUserInfo"
     >获取微信授权信息</button>
   </view>
+  <!-- <view slot="slot1">插槽1</view>
+  <view slot="slot2">插槽2</view> -->
 </x-bottom-modal>

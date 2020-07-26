@@ -5,6 +5,7 @@ page {
 .blog {
   padding: 20rpx;
   background-color: #fff;
+  /* margin-bottom: 20rpx; */
 }
 
 .blog-title {
@@ -23,9 +24,9 @@ page {
   flex: 1;
 }
 
-.blog-time {
+.blog-time{
   font-size: 24rpx;
-  color: #939393;
+  color: #909090;
 }
 
 .blog-content {

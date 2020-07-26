@@ -15,7 +15,7 @@ Page({
   data: {
     // 输入的文字个数
     wordsNum: 0,
-    footerBottom: 0,
+    footerBottom: 0,//底部数字和按钮一栏
     images: [],
     selectPhoto: true, // 添加图片元素是否显示
   },
@@ -24,10 +24,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
+    // console.log(options)
     userInfo = options
   },
-
+  //textarea绑定的输入事件
   onInput(event) {
     // console.log(event.detail.value)
     let wordsNum = event.detail.value.length
@@ -41,7 +41,7 @@ Page({
   },
 
   onFocus(event) {
-    // 模拟器获取的键盘高度为0
+    //真机运行时键盘高度为0
     // console.log(event)
     this.setData({
       footerBottom: event.detail.height,
@@ -55,14 +55,15 @@ Page({
 
   onChooseImage() {
     // 还能再选几张图片
-    let max = MAX_IMG_NUM - this.data.images.length
+    let max=MAX_IMG_NUM-this.data.images.length;
     wx.chooseImage({
       count: max,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: (res) => {
-        console.log(res)
+        // console.log(res)
         this.setData({
+          //追加上图片数量concat拼接
           images: this.data.images.concat(res.tempFilePaths)
         })
         // 还能再选几张图片
@@ -74,6 +75,7 @@ Page({
     })
   },
   onDelImage(event) {
+    //splice直接改变原数组
     this.data.images.splice(event.target.dataset.index, 1)
     this.setData({
       images: this.data.images
@@ -86,7 +88,6 @@ Page({
   },
 
   onPreviewImage(event) {
-    // 6/9
     wx.previewImage({
       urls: this.data.images,
       current: event.target.dataset.imgsrc,
@@ -94,10 +95,9 @@ Page({
   },
 
   send() {
-    // 2、数据 -> 云数据库
-    // 数据库：内容、图片fileID、openid、昵称、头像、时间
-    // 1、图片 -> 云存储 fileID 云文件ID
-
+    // 图片 -> 云存储 fileID 云文件ID
+     // 数据库：内容（判断是否为空）、图片fileID、openid、昵称、头像、时间
+    // 数据 存入-> 云数据库
     if (content.trim() === '') {
       wx.showModal({
         title: '请输入内容',
@@ -108,6 +108,7 @@ Page({
 
     wx.showLoading({
       title: '发布中',
+      //发布时出现一个蒙版的功能
       mask: true,
     })
 
@@ -115,15 +116,17 @@ Page({
     let fileIds = []
     // 图片上传
     for (let i = 0, len = this.data.images.length; i < len; i++) {
-      let p = new Promise((resolve, reject) => {
+     let p=new Promise((resolve,reject)=>{
         let item = this.data.images[i]
-        // 文件扩展名
+        // 利用正则获取文件扩展名 
         let suffix = /\.\w+$/.exec(item)[0]
+        //上传到云存储中
         wx.cloud.uploadFile({
+          //利用时间设置唯一的图片名
           cloudPath: 'find/' + Date.now() + '-' + Math.random() * 1000000 + suffix,
           filePath: item,
           success: (res) => {
-            console.log(res.fileID)
+            // console.log(res.fileID)
             fileIds = fileIds.concat(res.fileID)
             resolve()
           },
@@ -149,12 +152,11 @@ Page({
         wx.showToast({
           title: '发布成功',
         })
-
         // 返回find页面，并且刷新
         wx.navigateBack()
         const pages = getCurrentPages()
         // console.log(pages)
-        // 取到上一个页面
+        // 取到上一个页面并刷新界面
         const prevPage = pages[pages.length - 2]
         prevPage.onPullDownRefresh()
       })

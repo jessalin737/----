@@ -5,6 +5,7 @@
   padding: 0 20rpx;
   background-color: #fff;
   height: 100rpx;
+  /* 固定定位 */
   position: fixed;
   top: 0;
   left: 0;
@@ -29,5 +30,8 @@
   flex: 1;
 }
 .blog-list{
-  margin: 35px 0px;
+  margin: 80rpx 0rpx;
+}
+.blog-panel{
+  margin-bottom: 20rpx;
 }
