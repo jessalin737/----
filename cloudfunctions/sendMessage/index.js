@@ -15,13 +15,13 @@ exports.main = async (event, context) => {
        lang:'zh_CN',
        data:{
          time1:{
-           value:'event.createTime'
+           value:event.createTime
          },
          phrase2:{
            value:'评价完成'
          },
          thing3:{
-           value:'event.content'
+           value:event.content
          }
        },
        templateId:"Fey5Nwm0wT_mrswQIb284fcQWK_dW7Q--I9u7T3k4Bc",

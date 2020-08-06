@@ -19,6 +19,33 @@
   margin-right: 12rpx;
   font-size: 32rpx;
 }
+
+.shareBtn{
+  background-color: #fff;
+  color: rgba(40, 47, 60, 0.8); 
+  padding: 0;
+  height: 100%;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.shareHover{
+  display: none;
+}
+.shareText{
+  font-size: 32rpx;
+  font-weight: 400;
+}
+.share-btn::after {
+  display: none;
+}
+.share-hover::after {
+  border: 0;
+  display: none;
+}
+
 .content-comment{
   width: 560rpx;
   text-align: left;

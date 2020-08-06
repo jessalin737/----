@@ -6,7 +6,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    blogId:String
+    blogId:String,
+    blog:Object
   },
   externalClasses:['iconfont','icon-pinglun','icon-shared'],
   /**
@@ -30,6 +31,7 @@ Component({
             wx.getUserInfo({
               success: (res) => {
                 userInfo=res.userInfo
+                console.log(userInfo);
                 //显示写评论的界面
                 this.setData({
                   modalShow:true
@@ -46,7 +48,7 @@ Component({
       })
     },
     onLoginsuccess(event){
-      userInfo=event.detail;
+      userInfo=event.detail; //授权成功时获取userInfo的用户信息
      //授权成功时授权框消失，同时显示评论框
      this.setData({
        loginShow:false
@@ -62,16 +64,14 @@ Component({
         content:''
       })
     },
-    //使用form表单不需要实时绑定
-    // onInput(event){
-    //  this.setData({
-    //    content:event.detail.value
-    //  })
-    // },
+    onInput(event){
+     this.setData({
+       content:event.detail.value
+     })
+    },
     onSend(event){
       // console.log(event);
-      let formId=event.detail.formId;
-      let content=event.detail.value.content;
+      let content=this.data.content;
       if(content.trim()==''){
         wx.showModal({
           title: '评价的内容不能为空',
@@ -82,26 +82,26 @@ Component({
           title: '评价中',
           mask:true
         })
-        //小程序端直接将数据添加到数据库中
+        //小程序端直接将数据添加到find-comment数据库中
         db.collection('find-comment').add({
           data:{
             content,
             createTime:db.serverDate(),
-            nickname:userInfo.nickname,
+            nickName: userInfo.nickName,
             avatarUrl:userInfo.avatarUrl,
             blogId:this.data.blogId
           }
         }).then((res)=>{
-          wx.cloud.callFunction({
-            name:"sendMessage",
-            data:{
-              content,
-              createTime,
-              blogId:this.properties.blogId
-            }
-          }).then((res)=>{
-             console.log(res);
-          })
+          // wx.cloud.callFunction({
+          //   name:"sendMessage",
+          //   data:{
+          //     content,
+          //     createTime,
+          //     blogId:this.properties.blogId
+          //   }
+          // }).then((res)=>{
+          //    console.log(res);
+          // })
           wx.hideLoading();
           wx.showToast({
             title: '评价成功',
@@ -110,6 +110,7 @@ Component({
             modalShow:false,
             content:''
           })
+          this.triggerEvent('refreshComment'); 
         })
     }
   }

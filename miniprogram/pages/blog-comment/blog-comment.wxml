@@ -1,2 +1,32 @@
 <!--pages/blog-comment/blog-comment.wxml-->
+<scroll-view scroll-y="true" class="container">
+  <!-- 发布的内容及图片 -->
+  <view class="blog-card">
+   <x-blog-card blog="{{blog}}"/>
+  </view>
+  
+  <!-- 评论列表 -->
+  <view class="tab">
+    <view class="tab-item">评论列表</view>
+  </view>
+
+  <!-- 评论的具体内容 -->
+  <view class="commentlist">
+  <block wx:for="{{commentlist}}" wx:key="_id">
+   <view class="comment">
+      <view class="title">
+       <image class="avatar" src="{{item.avatarUrl}}"></image>
+       <text class="nickName">{{item.nickName}}</text>
+      </view>
+      <view class="content">{{item.content}}</view>
+      <view class="time">{{item.createTime}}</view>
+   </view>
+  </block> 
+  </view>
+</scroll-view>
+
+  <!-- 底部的评论和分享组件 -->
+  <view class="blog-ctrl">
+  <x-blog-ctrl iconfont="iconfont" icon-pinglun="icon-pinglun" icon-shared="icon-shared" blogId="{{blog._id}}" bind:refreshComment="_getBlogDetail"/>
+  </view>
 

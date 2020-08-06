@@ -1,20 +1,24 @@
 <!--components/blog-ctrl/blog-ctrl.wxml-->
 <view class="ctrl">
-  <view class="ctrl-item" bindtap="onComment">
-     <i class="iconfont icon-pinglun icon"></i>
-     <text>评论</text>
-  </view>
-  <view class="ctrl-item share">
-     <i class="iconfont icon-shared icon"></i>
-     <text>分享</text>
-  </view>
+	<view class="ctrl-item" bindtap="onComment">
+			<i class="iconfont icon-pinglun icon"></i>
+			<text>评论</text>
+	</view>
+
+	<view class="ctrl-item share">
+		<button open-type="share" class="shareBtn" hover-class="shareHover" data-blog="{{blog}}">
+			<i class="iconfont icon-shared icon"></i>
+			<text class="shareText">分享</text>
+		</button>
+	</view>
 </view>
-<x-login modalShow="{{loginShow}}" bind:loginsuccess="onLoginsuccess"  bind:loginfail="onLoginfail"/>
-<x-bottom-modal  modalShow="{{modalShow}}">
-   <form slot="modal-content" report-submit="true" bindsubmit="onSend">
-      <textarea name="content" placeholder="写评论" value="{{content}}" fixed="true" class="content-comment" ></textarea>
-      <button class="sendBtn" size="mini" form-type="submit">
-        <text>发送</text>
-      </button>
-   </form>
+<x-login modalShow="{{loginShow}}" bind:loginsuccess="onLoginsuccess" bind:loginfail="onLoginfail">
+</x-login>
+<x-bottom-modal modalShow="{{modalShow}}">
+	<view slot="modal-content">
+		<textarea name="content" placeholder="写评论" bindinput="onInput" value="{{content}}" fixed="true" class="content-comment"></textarea>
+		<button class="sendBtn" size="mini" bind:tap="onSend">
+			<text>发送</text>
+		</button>
+	</view>
 </x-bottom-modal>

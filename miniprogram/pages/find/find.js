@@ -6,7 +6,7 @@ Page({
    */
   data: {
     modalShow:false,
-    blogList: []
+    blogList: [],
   },
  //发布功能
  onPublish() {
@@ -134,7 +134,13 @@ onLoginFail() {
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (event) {
+    console.log(event);
+    let blogObj=event.target.dataset.blog;
+    return {
+      title:"鱿鱼教室通知",
+      path:`/pages/blog-comment/blog-comment/blogId?=${blogObj._id}`,
+      // imageUrl:'../images/fengmian.png'
+    }
   }
 })

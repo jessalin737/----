@@ -1,6 +1,6 @@
 <!--pages/blog-edit/blog-edit.wxml-->
 <view class="container">
-   <!-- 注意原生组件绑定事件中间不能用：,如bindinput,auto-focus自动获取焦点，控制底部距离 -->
+   <!-- 注意原生组件绑定事件中间不能用：,必须用bindinput,auto-focus自动获取焦点，控制底部距离 -->
   <textarea class="content" placeholder="分享新鲜事..."
     bindinput="onInput" maxlength="140" auto-focus
     bindfocus="onFocus" bindblur="onBlur"

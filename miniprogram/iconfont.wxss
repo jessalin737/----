@@ -17,10 +17,13 @@
 
 .icon-shared:before {
   content: "\e600";
+  color: cornflowerblue;
 }
 
 .icon-pinglun:before {
   content: "\e607";
+  color: orange;
+  
 }
 
 .icon-hao:before {
