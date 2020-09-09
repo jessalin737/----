@@ -7,10 +7,7 @@
 2. 底部有评论功能
 ### 个人信息
 1. 个人信息功能采用动态的波纹图，呈现蓝色边框底部动态流动的效果
-### 效果图
-![image](https://github.com/jessalin737/xiaochengxu-Smart-classroom/blob/master/classroom-4.jpg)
-![image](https://github.com/jessalin737/xiaochengxu-Smart-classroom/blob/master/classroom-5.png)
-![image](https://github.com/jessalin737/xiaochengxu-Smart-classroom/blob/master/classroom-6.png)
+
 
 
 
